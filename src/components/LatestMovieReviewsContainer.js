@@ -18,9 +18,8 @@ export default class LatestMovieReviews extends Component {
     fetch(URL)
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data.results)
         this.setState({
-          reviews: data
+          reviews: data.results
         });
       });
   }
@@ -29,9 +28,7 @@ export default class LatestMovieReviews extends Component {
   render() {
     return (
       <div className='latest-movie-reviews'>
-        {this.state.reviews.map(r => {
-          <MovieReviews review={e} />
-        })}
+        <MovieReviews reviews={this.state.reviews} />
       </div>
     )
   }
